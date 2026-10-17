@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary-50: #eef7f1;
+  --color-primary-100: #d7ecdd;
+  --color-primary-200: #b0d9bd;
+  --color-primary-300: #7fbf97;
+  --color-primary-400: #4da470;
+  --color-primary-500: #2c8754;
+  --color-primary-600: #1d6d43;
+  --color-primary-700: #175737;
+  --color-primary-800: #0f3d2e;
+  --color-primary-900: #0b2e24;
+  --color-primary-950: #06231a;
+
+  --color-gold-100: #faf0d2;
+  --color-gold-200: #f3df9f;
+  --color-gold-300: #e7c65b;
+  --color-gold-400: #d9b13b;
+  --color-gold-500: #c9a227;
+  --color-gold-600: #a8861d;
+  --color-gold-700: #866913;
+
+  --color-cream-50: #fdfbf5;
+  --color-cream-100: #faf6ec;
+  --color-cream-200: #f1e8d2;
+  --color-cream-300: #e3d3ae;
+
+  --color-ink-900: #191919;
+  --color-ink-700: #3d3d3d;
+  --color-ink-500: #6b6b6b;
+
+  --font-body: var(--font-cairo), "Segoe UI", Tahoma, sans-serif;
+  --font-display: var(--font-amiri), var(--font-cairo), serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream-100);
+  color: var(--color-ink-900);
+  font-family: var(--font-body);
+}
+
+/* ---------- Dark mode (genuine theme: dark chrome, light cards) ---------- */
+.dark {
+  color-scheme: dark;
+}
+.dark body {
+  background: #0d130f;
+  color: #ece7d8;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Islamic geometric subtle pattern for hero */
+.pattern-islamic {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a227' stroke-opacity='0.22' stroke-width='1'%3E%3Cpath d='M40 8l8 16 16 8-16 8-8 16-8-16-16-8 16-8z'/%3E%3Ccircle cx='40' cy='40' r='26'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.pattern-light {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.10' stroke-width='1'%3E%3Cpath d='M40 8l8 16 16 8-16 8-8 16-8-16-16-8 16-8z'/%3E%3Ccircle cx='40' cy='40' r='26'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.animate-float-soft {
+  animation: float-soft 5s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.6s ease both;
+}
+
+@media print {
+  .print-hidden {
+    display: none !important;
+  }
+  @page {
+    margin: 10mm;
+  }
+}
